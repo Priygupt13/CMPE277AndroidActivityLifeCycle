@@ -1,4 +1,4 @@
-Android-Activity-Lifecycle
+## Android-Activity-Lifecycle
 
 
 Simple Android activity lifecycle example with two different activities to see how the lifecycle callbacks work.
