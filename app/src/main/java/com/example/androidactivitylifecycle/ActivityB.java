@@ -4,7 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
+import android.widget.Toast;
+import static com.example.androidactivitylifecycle.MainActivity.threadCounter;
 public class ActivityB extends AppCompatActivity {
 
     @Override
@@ -14,7 +15,14 @@ public class ActivityB extends AppCompatActivity {
         Log.e("onCreate ------ ", "ActivityB: onCreate()");
     }
 
-    public void onFinishActivityB(View view) {
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        threadCounter = threadCounter + 1;
+    }
+    public void onFinishActivityB(View view)
+    {
+        Log.e("onFinishActivityB ", "ActivityB: onFinishActivityB()");
         finish();
     }
 }

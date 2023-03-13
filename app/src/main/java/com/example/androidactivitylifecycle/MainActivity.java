@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    int threadCounter = 0;
+    static int threadCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public void onStartActivityB (View view) {
         Intent activityBIntent = new Intent(MainActivity.this, ActivityB.class);
         startActivity(activityBIntent);
-        Log.e("onStart ------ ", "ActivityB: onStart()");
+        Log.e("onStartActivityB ", "MainActivity: onStartActivityB()");
     }
 
     public void onTriggerDialog (View view) {
@@ -49,5 +49,11 @@ public class MainActivity extends AppCompatActivity {
     public void onCloseApp (View view) {
         finish();
         System.exit(0);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        threadCounter = 0;
     }
 }
